@@ -104,7 +104,13 @@ export default function OrderSection({ contact }) {
       })
 
       setSubmitMessage('Order saved successfully. Opening WhatsApp...')
-      window.open(url, '_blank')
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
+if (isMobile) {
+  window.location.href = url
+} else {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
 
       clearCart()
       setFormValues(initialState)
