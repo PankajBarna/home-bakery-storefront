@@ -1,0 +1,20 @@
+[
+  {
+    "id": "offer_1773117921791_as7ief",
+    "title": "Free a cupcake",
+    "badge": "Valentine's Week",
+    "description": "One cupcake free on entire valentine's week. One cupcake per order."
+  },
+  {
+    "id": "offer_1",
+    "badge": "Weekend Special",
+    "title": "Free cupcakes on orders above ₹1,999",
+    "description": "Perfect for birthday add-ons and family celebrations."
+  },
+  {
+    "id": "offer_2",
+    "badge": "Cheesecake Treat",
+    "title": "10% off on 2 cheesecake orders",
+    "description": "Pick two flavours and enjoy a sweeter deal."
+  }
+]

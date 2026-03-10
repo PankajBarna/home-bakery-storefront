@@ -1,0 +1,26 @@
+[
+  {
+    "id": "review_1773119681267_w3ye0g",
+    "name": "Swati",
+    "subtitle": "",
+    "location": "Lakeshore",
+    "rating": "4.8",
+    "text": "Too yummy to resist."
+  },
+  {
+    "id": "review_1773062882042_mbvbmk",
+    "name": "Shabana",
+    "subtitle": "",
+    "location": "Urbano",
+    "rating": "4.5",
+    "text": "Cake was too yummy. Melted in mouth."
+  },
+  {
+    "id": "review_1",
+    "name": "Riya",
+    "subtitle": "Birthday Cake Order",
+    "location": "Casa Bella, Palava",
+    "rating": "5",
+    "text": "The cake looked beautiful and tasted even better. Everyone at home loved it."
+  }
+]

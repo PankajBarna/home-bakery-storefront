@@ -1,0 +1,79 @@
+[
+  {
+    "id": "order_1773124183597_hfk34w",
+    "createdAt": "2026-03-10T06:29:43.597Z",
+    "name": "Sandeep",
+    "phone": "9898989000",
+    "fulfillmentType": "delivery",
+    "date": "2026-03-11",
+    "address": "Urbano D202",
+    "cakeMessage": "-",
+    "specialNote": "Gift pack",
+    "total": "₹699",
+    "status": "pending",
+    "items": [
+      {
+        "name": "Classic Chocolate Birthday Cake",
+        "weight": "1/2 kg",
+        "flavour": "Chocolate",
+        "eggType": "Egg",
+        "quantity": 1,
+        "lineTotal": "₹699"
+      }
+    ]
+  },
+  {
+    "id": "order_1773060793590_0l6qwk",
+    "createdAt": "2026-03-09T12:53:13.590Z",
+    "name": "Sonu",
+    "phone": "9999999999",
+    "fulfillmentType": "delivery",
+    "date": "2026-03-10",
+    "address": "jammu",
+    "cakeMessage": "Happy Aniversery",
+    "specialNote": "add candles",
+    "total": "₹1,798",
+    "status": "confirmed",
+    "items": [
+      {
+        "name": "Baked Blueberry Cheesecake",
+        "weight": "1/2 kg",
+        "flavour": "Blueberry",
+        "eggType": "Eggless",
+        "quantity": 2,
+        "lineTotal": "₹1,798"
+      }
+    ]
+  },
+  {
+    "id": "order_1773059618332_ll4pxe",
+    "createdAt": "2026-03-09T12:33:38.332Z",
+    "name": "Pankaj",
+    "phone": "9090909090",
+    "fulfillmentType": "delivery",
+    "date": "2026-03-10",
+    "address": "Florincea B709",
+    "cakeMessage": "Happy Birthday Sonu",
+    "specialNote": "Make it a gift.",
+    "total": "₹1,548",
+    "status": "completed",
+    "items": [
+      {
+        "name": "Classic Chocolate Birthday Cake",
+        "weight": "1/2 kg",
+        "flavour": "Chocolate",
+        "eggType": "Egg",
+        "quantity": 1,
+        "lineTotal": "₹699"
+      },
+      {
+        "name": "Heart Truffle Cake",
+        "weight": "1/2 kg",
+        "flavour": "Truffle",
+        "eggType": "Egg",
+        "quantity": 1,
+        "lineTotal": "₹849"
+      }
+    ]
+  }
+]

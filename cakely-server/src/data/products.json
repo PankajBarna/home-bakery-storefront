@@ -1,0 +1,109 @@
+[
+  {
+    "id": "product_1",
+    "name": "Classic Chocolate Birthday Cake",
+    "category": "Birthday Cakes",
+    "basePrice": "699",
+    "image": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=800&q=80",
+    "description": "Rich chocolate sponge with creamy frosting and elegant piping.",
+    "weights": [
+      "1/2 kg",
+      "1 kg",
+      "2 kg"
+    ],
+    "weightPrices": [
+      {
+        "weight": "1/2 kg",
+        "price": "699"
+      },
+      {
+        "weight": "1 kg",
+        "price": "1299"
+      },
+      {
+        "weight": "2 kg",
+        "price": "2399"
+      }
+    ],
+    "flavours": [
+      "Chocolate",
+      "Truffle",
+      "Black Forest"
+    ],
+    "eggTypes": [
+      "Egg",
+      "Eggless"
+    ],
+    "available": true,
+    "bestseller": true
+  },
+  {
+    "id": "product_2",
+    "name": "Princess Theme Cake",
+    "category": "Theme Cakes",
+    "basePrice": "999",
+    "image": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=800&q=80",
+    "description": "A dreamy custom cake designed for magical birthdays.",
+    "weights": [
+      "1/2 kg",
+      "1 kg",
+      "2 kg"
+    ],
+    "weightPrices": [
+      {
+        "weight": "1/2 kg",
+        "price": "999"
+      },
+      {
+        "weight": "1 kg",
+        "price": "1799"
+      },
+      {
+        "weight": "2 kg",
+        "price": "3299"
+      }
+    ],
+    "flavours": [
+      "Vanilla",
+      "Chocolate",
+      "Butterscotch"
+    ],
+    "eggTypes": [
+      "Egg",
+      "Eggless"
+    ],
+    "available": true,
+    "bestseller": false
+  },
+  {
+    "id": "product_3",
+    "name": "Baked Blueberry Cheesecake",
+    "category": "Cheesecakes",
+    "basePrice": "899",
+    "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80",
+    "description": "Creamy baked cheesecake topped with blueberry compote.",
+    "weights": [
+      "1/2 kg",
+      "1 kg"
+    ],
+    "weightPrices": [
+      {
+        "weight": "1/2 kg",
+        "price": "899"
+      },
+      {
+        "weight": "1 kg",
+        "price": "1699"
+      }
+    ],
+    "flavours": [
+      "Blueberry",
+      "Classic"
+    ],
+    "eggTypes": [
+      "Eggless"
+    ],
+    "available": true,
+    "bestseller": true
+  }
+]
