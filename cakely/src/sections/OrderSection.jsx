@@ -96,20 +96,37 @@ export default function OrderSection({ contact }) {
       await createOrder(orderPayload)
 
       const url = createWhatsAppMessage({
-        contact,
-        formValues,
-        cartItems,
-        total
-      })
+  contact,
+  formValues,
+  cartItems,
+  total
+})
 
-      setSubmitMessage('Order saved successfully. Opening WhatsApp...')
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+setSubmitMessage('Order saved successfully. Opening WhatsApp...')
 
-      if (isMobile) {
-        window.location.href = url
-      } else {
-        window.open(url, '_blank', 'noopener,noreferrer')
-      }
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
+if (isMobile) {
+  window.location.assign(url)
+} else {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
+
+      // const url = createWhatsAppMessage({
+      //   contact,
+      //   formValues,
+      //   cartItems,
+      //   total
+      // })
+
+      // setSubmitMessage('Order saved successfully. Opening WhatsApp...')
+      // const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
+      // if (isMobile) {
+      //   window.location.href = url
+      // } else {
+      //   window.open(url, '_blank', 'noopener,noreferrer')
+      // }
 
       clearCart()
       setFormValues(initialState)
