@@ -113,13 +113,13 @@ export default function OrderSection({ contact }) {
       setWhatsAppUrl(url)
       setSubmitMessage('Order saved successfully. Tap the button below to continue on WhatsApp.')
 
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+      // const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 
-      try {
-        if (!isMobile) {
-          window.open(url, '_blank', 'noopener,noreferrer')
-        }
-      } catch { }
+      // try {
+      //   if (!isMobile) {
+      //     window.open(url, '_blank', 'noopener,noreferrer')
+      //   }
+      // } catch { }
 
       clearCart()
       setFormValues(initialState)
@@ -280,21 +280,21 @@ export default function OrderSection({ contact }) {
             )}
 
             {submitMessage && (
-              <div className="mt-5 rounded-2xl border border-brand-100 bg-brand-50 px-4 py-4 space-y-3">
-                <p className="text-sm text-brand-700">{submitMessage}</p>
+  <div className="mt-5 rounded-2xl border border-brand-100 bg-brand-50 px-4 py-4 space-y-3">
+    <p className="text-sm text-brand-700">{submitMessage}</p>
 
-                {whatsAppUrl && (
-                  <a
-                    href={whatsAppUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-2xl px-5 py-3.5 font-medium transition duration-200 bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_25px_rgba(223,62,116,0.22)]"
-                  >
-                    Open WhatsApp
-                  </a>
-                )}
-              </div>
-            )}
+    {whatsAppUrl && (
+      <a
+        href={whatsAppUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center rounded-2xl px-5 py-3.5 font-medium transition duration-200 bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_25px_rgba(223,62,116,0.22)]"
+      >
+        Continue on WhatsApp
+      </a>
+    )}
+  </div>
+)}
 
             <div className="mt-6 rounded-[24px] bg-brand-50 border border-brand-100 p-4 sm:p-5">
               <p className="text-sm sm:text-base text-slate-700 leading-7">
