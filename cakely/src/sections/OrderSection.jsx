@@ -26,8 +26,8 @@ function ToggleOption({ active, onClick, title, subtitle }) {
       type="button"
       onClick={onClick}
       className={`w-full rounded-[22px] border p-4 text-left transition ${active
-          ? 'border-brand-600 bg-brand-50 shadow-[0_8px_20px_rgba(223,62,116,0.12)]'
-          : 'border-rose-200 bg-white hover:bg-rose-50'
+        ? 'border-brand-600 bg-brand-50 shadow-[0_8px_20px_rgba(223,62,116,0.12)]'
+        : 'border-rose-200 bg-white hover:bg-rose-50'
         }`}
     >
       <p className={`font-semibold ${active ? 'text-brand-700' : 'text-slate-900'}`}>
@@ -44,17 +44,25 @@ export default function OrderSection({ contact }) {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
+  const [whatsAppUrl, setWhatsAppUrl] = useState('')
 
   const itemCount = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
     [cartItems]
   )
 
+  // const onChange = (key, value) => {
+  //   setFormValues((prev) => ({ ...prev, [key]: value }))
+  //   setErrors((prev) => ({ ...prev, [key]: '', cart: '' }))
+  //   setSubmitMessage('')
+  // }
+
   const onChange = (key, value) => {
-    setFormValues((prev) => ({ ...prev, [key]: value }))
-    setErrors((prev) => ({ ...prev, [key]: '', cart: '' }))
-    setSubmitMessage('')
-  }
+  setFormValues((prev) => ({ ...prev, [key]: value }))
+  setErrors((prev) => ({ ...prev, [key]: '', cart: '' }))
+  setSubmitMessage('')
+  setWhatsAppUrl('')
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -96,37 +104,22 @@ export default function OrderSection({ contact }) {
       await createOrder(orderPayload)
 
       const url = createWhatsAppMessage({
-  contact,
-  formValues,
-  cartItems,
-  total
-})
+        contact,
+        formValues,
+        cartItems,
+        total
+      })
 
-setSubmitMessage('Order saved successfully. Opening WhatsApp...')
+      setWhatsAppUrl(url)
+      setSubmitMessage('Order saved successfully. Tap the button below to continue on WhatsApp.')
 
-const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 
-if (isMobile) {
-  window.location.assign(url)
-} else {
-  window.open(url, '_blank', 'noopener,noreferrer')
-}
-
-      // const url = createWhatsAppMessage({
-      //   contact,
-      //   formValues,
-      //   cartItems,
-      //   total
-      // })
-
-      // setSubmitMessage('Order saved successfully. Opening WhatsApp...')
-      // const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-
-      // if (isMobile) {
-      //   window.location.href = url
-      // } else {
-      //   window.open(url, '_blank', 'noopener,noreferrer')
-      // }
+      try {
+        if (!isMobile) {
+          window.open(url, '_blank', 'noopener,noreferrer')
+        }
+      } catch { }
 
       clearCart()
       setFormValues(initialState)
@@ -287,8 +280,19 @@ if (isMobile) {
             )}
 
             {submitMessage && (
-              <div className="mt-5 rounded-2xl border border-brand-100 bg-brand-50 px-4 py-3">
+              <div className="mt-5 rounded-2xl border border-brand-100 bg-brand-50 px-4 py-4 space-y-3">
                 <p className="text-sm text-brand-700">{submitMessage}</p>
+
+                {whatsAppUrl && (
+                  <a
+                    href={whatsAppUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-2xl px-5 py-3.5 font-medium transition duration-200 bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_25px_rgba(223,62,116,0.22)]"
+                  >
+                    Open WhatsApp
+                  </a>
+                )}
               </div>
             )}
 
