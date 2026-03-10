@@ -25,11 +25,10 @@ function ToggleOption({ active, onClick, title, subtitle }) {
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-[22px] border p-4 text-left transition ${
-        active
+      className={`w-full rounded-[22px] border p-4 text-left transition ${active
           ? 'border-brand-600 bg-brand-50 shadow-[0_8px_20px_rgba(223,62,116,0.12)]'
           : 'border-rose-200 bg-white hover:bg-rose-50'
-      }`}
+        }`}
     >
       <p className={`font-semibold ${active ? 'text-brand-700' : 'text-slate-900'}`}>
         {title}
@@ -106,11 +105,11 @@ export default function OrderSection({ contact }) {
       setSubmitMessage('Order saved successfully. Opening WhatsApp...')
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 
-if (isMobile) {
-  window.location.href = url
-} else {
-  window.open(url, '_blank', 'noopener,noreferrer')
-}
+      if (isMobile) {
+        window.location.href = url
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer')
+      }
 
       clearCart()
       setFormValues(initialState)
