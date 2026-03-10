@@ -4,6 +4,7 @@ import SectionTitle from '../components/ui/SectionTitle'
 import Input from '../components/ui/Input'
 import Textarea from '../components/ui/Textarea'
 import Button from '../components/ui/Button'
+import SuccessModal from '../components/ui/SuccessModal'
 import useCart from '../hooks/useCart'
 import { validateOrderForm } from '../utils/validation'
 import { createWhatsAppMessage } from '../utils/whatsapp'
@@ -25,10 +26,11 @@ function ToggleOption({ active, onClick, title, subtitle }) {
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-[22px] border p-4 text-left transition ${active
-        ? 'border-brand-600 bg-brand-50 shadow-[0_8px_20px_rgba(223,62,116,0.12)]'
-        : 'border-rose-200 bg-white hover:bg-rose-50'
-        }`}
+      className={`w-full rounded-[22px] border p-4 text-left transition ${
+        active
+          ? 'border-brand-600 bg-brand-50 shadow-[0_8px_20px_rgba(223,62,116,0.12)]'
+          : 'border-rose-200 bg-white hover:bg-rose-50'
+      }`}
     >
       <p className={`font-semibold ${active ? 'text-brand-700' : 'text-slate-900'}`}>
         {title}
@@ -45,24 +47,18 @@ export default function OrderSection({ contact }) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
   const [whatsAppUrl, setWhatsAppUrl] = useState('')
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
 
   const itemCount = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
     [cartItems]
   )
 
-  // const onChange = (key, value) => {
-  //   setFormValues((prev) => ({ ...prev, [key]: value }))
-  //   setErrors((prev) => ({ ...prev, [key]: '', cart: '' }))
-  //   setSubmitMessage('')
-  // }
-
   const onChange = (key, value) => {
-  setFormValues((prev) => ({ ...prev, [key]: value }))
-  setErrors((prev) => ({ ...prev, [key]: '', cart: '' }))
-  setSubmitMessage('')
-  setWhatsAppUrl('')
-}
+    setFormValues((prev) => ({ ...prev, [key]: value }))
+    setErrors((prev) => ({ ...prev, [key]: '', cart: '' }))
+    setSubmitMessage('')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -111,19 +107,12 @@ export default function OrderSection({ contact }) {
       })
 
       setWhatsAppUrl(url)
-      setSubmitMessage('Order saved successfully. Tap the button below to continue on WhatsApp.')
-
-      // const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-
-      // try {
-      //   if (!isMobile) {
-      //     window.open(url, '_blank', 'noopener,noreferrer')
-      //   }
-      // } catch { }
+      setShowSuccessModal(true)
 
       clearCart()
       setFormValues(initialState)
       setErrors({})
+      setSubmitMessage('')
     } catch (error) {
       const message =
         error?.response?.data?.message || 'Could not save order. Please try again.'
@@ -280,21 +269,10 @@ export default function OrderSection({ contact }) {
             )}
 
             {submitMessage && (
-  <div className="mt-5 rounded-2xl border border-brand-100 bg-brand-50 px-4 py-4 space-y-3">
-    <p className="text-sm text-brand-700">{submitMessage}</p>
-
-    {whatsAppUrl && (
-      <a
-        href={whatsAppUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center rounded-2xl px-5 py-3.5 font-medium transition duration-200 bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_25px_rgba(223,62,116,0.22)]"
-      >
-        Continue on WhatsApp
-      </a>
-    )}
-  </div>
-)}
+              <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3">
+                <p className="text-sm text-red-600">{submitMessage}</p>
+              </div>
+            )}
 
             <div className="mt-6 rounded-[24px] bg-brand-50 border border-brand-100 p-4 sm:p-5">
               <p className="text-sm sm:text-base text-slate-700 leading-7">
@@ -305,7 +283,8 @@ export default function OrderSection({ contact }) {
 
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <p className="text-sm text-slate-500 leading-6">
-                By continuing, your order details will open in WhatsApp for final confirmation.
+                By continuing, your order details will be saved first, then you can continue on
+                WhatsApp for final confirmation.
               </p>
 
               <Button
@@ -386,6 +365,15 @@ export default function OrderSection({ contact }) {
             </div>
           </aside>
         </div>
+
+        <SuccessModal
+          open={showSuccessModal}
+          onClose={() => setShowSuccessModal(false)}
+          title="Order saved successfully"
+          message="Your order has been saved. Tap below to continue on WhatsApp and send it to Cakely."
+          actionHref={whatsAppUrl}
+          actionLabel="Continue on WhatsApp"
+        />
       </div>
     </section>
   )
