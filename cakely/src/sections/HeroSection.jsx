@@ -5,7 +5,7 @@ export default function HeroSection({ hero }) {
   return (
     <section
       id="hero"
-      className="relative min-h-[78vh] sm:min-h-[88vh] flex items-center overflow-hidden"
+      className="relative z-10 min-h-[78vh] sm:min-h-[88vh] flex items-center overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(rgba(34,20,25,0.52), rgba(34,20,25,0.52)), url('${hero.image}')`,
         backgroundSize: 'cover',

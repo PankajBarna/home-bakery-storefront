@@ -231,36 +231,36 @@ export default function AdminDashboardPage() {
   const todayDate = new Date().toISOString().slice(0, 10)
 
   const dashboardStats = useMemo(() => {
-  const totalOrders = orders.length
+    const totalOrders = orders.length
 
-  const getNumericTotal = (order) =>
-    Number(String(order.total || '').replace(/[^\d.]/g, '')) || 0
+    const getNumericTotal = (order) =>
+      Number(String(order.total || '').replace(/[^\d.]/g, '')) || 0
 
-  const totalEarnings = orders.reduce((sum, order) => sum + getNumericTotal(order), 0)
+    const totalEarnings = orders.reduce((sum, order) => sum + getNumericTotal(order), 0)
 
-  const todaysOrdersList = orders.filter((order) => order.date === todayDate)
-  const todaysOrders = todaysOrdersList.length
-  const todaysEarnings = todaysOrdersList.reduce(
-    (sum, order) => sum + getNumericTotal(order),
-    0
-  )
+    const todaysOrdersList = orders.filter((order) => order.date === todayDate)
+    const todaysOrders = todaysOrdersList.length
+    const todaysEarnings = todaysOrdersList.reduce(
+      (sum, order) => sum + getNumericTotal(order),
+      0
+    )
 
-  const pendingOrders = orders.filter((order) => order.status === 'pending').length
-  const confirmedOrders = orders.filter((order) => order.status === 'confirmed').length
-  const preparingOrders = orders.filter((order) => order.status === 'preparing').length
-  const completedOrders = orders.filter((order) => order.status === 'completed').length
+    const pendingOrders = orders.filter((order) => order.status === 'pending').length
+    const confirmedOrders = orders.filter((order) => order.status === 'confirmed').length
+    const preparingOrders = orders.filter((order) => order.status === 'preparing').length
+    const completedOrders = orders.filter((order) => order.status === 'completed').length
 
-  return {
-    totalOrders,
-    totalEarnings,
-    todaysOrders,
-    todaysEarnings,
-    pendingOrders,
-    confirmedOrders,
-    preparingOrders,
-    completedOrders
-  }
-}, [orders, todayDate])
+    return {
+      totalOrders,
+      totalEarnings,
+      todaysOrders,
+      todaysEarnings,
+      pendingOrders,
+      confirmedOrders,
+      preparingOrders,
+      completedOrders
+    }
+  }, [orders, todayDate])
 
   const productColumns = useMemo(
     () => [
@@ -610,12 +610,12 @@ export default function AdminDashboardPage() {
   if (!isLoggedIn) return null
 
   return (
-    <AdminLayout>
+    <AdminLayout activeTab={activeTab} setActiveTab={setActiveTab}>
       <div className="space-y-8">
-        <section className="card p-5 md:p-6">
+        {/* <section className="card p-5 md:p-6">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div>
-              <h2 className="font-heading text-5xl text-slate-900">Admin Dashboard</h2>
+              <h2 className="font-heading text-3xl text-slate-900">Admin Dashboard</h2>
               <p className="text-slate-500 mt-3">
                 Manage daily orders and storefront content from one place.
               </p>
@@ -625,11 +625,10 @@ export default function AdminDashboardPage() {
               <button
                 type="button"
                 onClick={() => setActiveTab('dashboard')}
-                className={`rounded-full px-5 py-3 text-sm font-medium transition ${
-                  activeTab === 'dashboard'
+                className={`rounded-full px-5 py-3 text-sm font-medium transition ${activeTab === 'dashboard'
                     ? 'bg-brand-600 text-white'
                     : 'bg-white border border-rose-200 text-slate-700 hover:bg-rose-50'
-                }`}
+                  }`}
               >
                 Orders & Dashboard
               </button>
@@ -637,11 +636,10 @@ export default function AdminDashboardPage() {
               <button
                 type="button"
                 onClick={() => setActiveTab('content')}
-                className={`rounded-full px-5 py-3 text-sm font-medium transition ${
-                  activeTab === 'content'
+                className={`rounded-full px-5 py-3 text-sm font-medium transition ${activeTab === 'content'
                     ? 'bg-brand-600 text-white'
                     : 'bg-white border border-rose-200 text-slate-700 hover:bg-rose-50'
-                }`}
+                  }`}
               >
                 Storefront Content
               </button>
@@ -659,47 +657,47 @@ export default function AdminDashboardPage() {
               <p className="text-sm text-red-600">{contentError}</p>
             </div>
           )}
-        </section>
+        </section> */}
 
         {activeTab === 'dashboard' && (
           <>
-            <section id="dashboard" className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-  <StatsCard
-    label="Total Orders"
-    value={dashboardStats.totalOrders}
-    helper="All orders received"
-  />
-  <StatsCard
-    label="Total Earnings"
-    value={`₹${dashboardStats.totalEarnings.toLocaleString('en-IN')}`}
-    helper="Based on saved orders"
-    tone="success"
-  />
-  <StatsCard
-    label="Today's Orders"
-    value={dashboardStats.todaysOrders}
-    helper={`For ${todayDate}`}
-    tone="info"
-  />
-  <StatsCard
-    label="Today's Earnings"
-    value={`₹${dashboardStats.todaysEarnings.toLocaleString('en-IN')}`}
-    helper="From today's orders"
-    tone="success"
-  />
-  <StatsCard
-    label="Pending Orders"
-    value={dashboardStats.pendingOrders}
-    helper="Need confirmation"
-    tone="warning"
-  />
-  <StatsCard
-    label="Preparing Orders"
-    value={dashboardStats.preparingOrders}
-    helper="Currently in kitchen"
-    tone="warning"
-  />
-</section>
+            <section id="dashboard" className="grid sm:grid-cols-2 xl:grid-cols-6 gap-6">
+              <StatsCard
+                label="Total Orders"
+                value={dashboardStats.totalOrders}
+                helper="All orders received"
+              />
+              <StatsCard
+                label="Total Earnings"
+                value={`₹${dashboardStats.totalEarnings.toLocaleString('en-IN')}`}
+                helper="Based on saved orders"
+                tone="success"
+              />
+              <StatsCard
+                label="Today's Orders"
+                value={dashboardStats.todaysOrders}
+                helper={`For ${todayDate}`}
+                tone="info"
+              />
+              <StatsCard
+                label="Today's Earnings"
+                value={`₹${dashboardStats.todaysEarnings.toLocaleString('en-IN')}`}
+                helper="From today's orders"
+                tone="success"
+              />
+              <StatsCard
+                label="Pending Orders"
+                value={dashboardStats.pendingOrders}
+                helper="Need confirmation"
+                tone="warning"
+              />
+              <StatsCard
+                label="Preparing Orders"
+                value={dashboardStats.preparingOrders}
+                helper="Currently in kitchen"
+                tone="warning"
+              />
+            </section>
 
             <div id="orders" className="space-y-4">
               {ordersLoading && (

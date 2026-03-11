@@ -23,7 +23,7 @@ function ToggleCard({ active, title, subtitle, onClick }) {
         <button
             type="button"
             onClick={onClick}
-            className={`rounded-[18px] border p-4 text-left transition ${active
+            className={`rounded-[16px] border p-4 text-left transition ${active
                     ? 'border-brand-600 bg-brand-50 shadow-[0_8px_20px_rgba(223,62,116,0.12)]'
                     : 'border-rose-200 bg-white hover:bg-rose-50'
                 }`}

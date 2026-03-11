@@ -40,7 +40,8 @@ export default function MenuSection({ products, onSelect }) {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        {/* <div className="grid grid-cols-2 sm:grid-col-2 md:grid-col-1 xl:grid-cols-3 gap-8"> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {filtered.map((product) => (
             <ProductCard
               key={product.id}

@@ -16,7 +16,7 @@ export default function ProductCard({ product, onSelect }) {
         <img
           src={product.image}
           alt={product.name}
-          className="h-52 sm:h-56 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+          className="h-46 sm:h-50 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
         />
 
         <div className="absolute top-3 left-3 right-3 flex items-start justify-between gap-2">
@@ -38,7 +38,8 @@ export default function ProductCard({ product, onSelect }) {
       <div className="p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h3 className="text-[1.9rem] sm:text-[1.55rem] font-semibold text-slate-900 leading-snug">
+            {/* <h3 className="text-[1.9rem] sm:text-[1.55rem] font-semibold text-slate-900 leading-snug"> */}
+              <h3 className="text-lg sm:text-lg md:text-xl lg:text-2xl  font-semibold text-slate-900 leading-snug">
               {product.name}
             </h3>
             <p className="text-sm text-slate-500 mt-1">{product.category}</p>

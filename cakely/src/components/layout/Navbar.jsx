@@ -7,20 +7,20 @@ export default function Navbar() {
   const { cartCount, setIsCartOpen } = useCart()
 
   return (
-    <header className="sticky top-0 z-[100] bg-white/90 backdrop-blur border-b border-rose-100">
-      <div className="section-wrap h-[72px] flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-100 bg-white/90 backdrop-blur border-b border-rose-100">
+      <div className="section-wrap h-18 flex items-center justify-between gap-3">
         <a href="#hero" className="flex items-center gap-3 min-w-0">
-          <div className="h-12 w-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+          {/* <div className="h-12 w-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
             <CakeSlice size={20} />
-          </div>
+          </div> */}
 
           <div className="min-w-0">
-            <p className="font-heading text-[1.9rem] leading-none text-slate-900 truncate">
+            <p className="font-heading text-[1.9rem] leading-none text-slate-900">
               Cakely
             </p>
-            <p className="text-sm text-slate-500 leading-none mt-1 truncate">
+            {/* <p className="text-sm text-slate-500 leading-none mt-1 truncate">
               Palava Phase 2
-            </p>
+            </p> */}
           </div>
         </a>
 
@@ -29,7 +29,7 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-slate-700 hover:text-brand-600"
+              className="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"
             >
               {item.label}
             </a>

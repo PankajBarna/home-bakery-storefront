@@ -12,7 +12,7 @@ export default function Button({
 
   return (
     <button
-      className={`inline-flex items-center justify-center rounded-2xl px-5 py-3.5 font-medium transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-xl px-4.5 py-3 font-medium transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed ${variants[variant]} ${className}`}
       {...props}
     >
       {children}

@@ -102,7 +102,7 @@ export default function OrdersTable({ orders, onStatusChange }) {
         <table className="w-full text-sm min-w-[1080px]">
           <thead>
             <tr className="text-left border-b border-rose-100">
-              <th className="py-3 pr-4 text-slate-500 font-medium">Customer</th>
+              <th className="py-3 pr-4 pl-2 text-slate-500 font-medium">Customer</th>
               <th className="py-3 pr-4 text-slate-500 font-medium">Phone</th>
               <th className="py-3 pr-4 text-slate-500 font-medium">Mode</th>
               <th className="py-3 pr-4 text-slate-500 font-medium">Date</th>
@@ -110,7 +110,7 @@ export default function OrdersTable({ orders, onStatusChange }) {
               <th className="py-3 pr-4 text-slate-500 font-medium">Amount</th>
               <th className="py-3 pr-4 text-slate-500 font-medium">Status</th>
               <th className="py-3 pr-4 text-slate-500 font-medium">Received</th>
-              <th className="py-3 text-slate-500 font-medium">Update</th>
+              <th className="py-3 pr-2 text-slate-500 font-medium">Update</th>
             </tr>
           </thead>
 
@@ -125,7 +125,7 @@ export default function OrdersTable({ orders, onStatusChange }) {
                     overdue ? 'bg-red-50/60' : ''
                   }`}
                 >
-                  <td className="py-4 pr-4">
+                  <td className="py-4 pr-4 pl-2">
                     <p className="font-semibold text-slate-900">{order.name}</p>
                     <div className="flex items-center gap-2 mt-1 flex-wrap">
                       <p className="text-slate-500 text-xs">{order.address || 'No address'}</p>
@@ -167,7 +167,7 @@ export default function OrdersTable({ orders, onStatusChange }) {
                     </span>
                   </td>
 
-                  <td className="py-4">
+                  <td className="py-4 pr-2">
                     <Select
                       value={order.status}
                       onChange={(e) => onStatusChange(order.id, e.target.value)}

@@ -44,7 +44,7 @@ export default function CartDrawer() {
 
         <div className="p-5 space-y-4 h-[calc(100%-190px)] overflow-y-auto bg-rose-50">
           {cartItems.length === 0 ? (
-            <div className="bg-white rounded-[28px] border border-rose-100 p-8 text-center shadow-sm">
+            <div className="bg-white rounded-[1rem] border border-rose-100 p-8 text-center shadow-sm">
               <div className="h-16 w-16 mx-auto rounded-full bg-brand-100 text-brand-700 flex items-center justify-center mb-4">
                 <ShoppingBag size={26} />
               </div>
@@ -66,7 +66,7 @@ export default function CartDrawer() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-5 border-t border-rose-100 bg-white">
-          <div className="rounded-[24px] bg-brand-50 border border-brand-100 p-4 mb-4">
+          <div className="rounded-[1rem] bg-brand-50 border border-brand-100 p-4 mb-4">
             <div className="flex items-center justify-between">
               <p className="text-slate-600">Total Amount</p>
               <p className="text-2xl font-bold text-brand-700">

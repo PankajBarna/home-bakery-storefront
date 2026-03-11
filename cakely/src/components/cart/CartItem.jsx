@@ -3,12 +3,12 @@ import formatCurrency from '../../utils/formatCurrency'
 
 export default function CartItem({ item, onUpdate, onRemove }) {
   return (
-    <div className="rounded-[24px] border border-rose-100 p-4 bg-white shadow-sm">
+    <div className="rounded-[1rem] border border-rose-100 p-4 bg-white shadow-sm">
       <div className="flex gap-4">
         <img
           src={item.image}
           alt={item.name}
-          className="h-24 w-24 rounded-2xl object-cover flex-shrink-0"
+          className="h-24 w-24 rounded-[.75rem] object-cover flex-shrink-0"
         />
 
         <div className="flex-1 min-w-0">

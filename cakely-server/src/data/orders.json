@@ -10,7 +10,7 @@
     "cakeMessage": "-",
     "specialNote": "Gift pack",
     "total": "₹699",
-    "status": "pending",
+    "status": "preparing",
     "items": [
       {
         "name": "Classic Chocolate Birthday Cake",
@@ -33,7 +33,7 @@
     "cakeMessage": "Happy Aniversery",
     "specialNote": "add candles",
     "total": "₹1,798",
-    "status": "confirmed",
+    "status": "out_for_delivery",
     "items": [
       {
         "name": "Baked Blueberry Cheesecake",

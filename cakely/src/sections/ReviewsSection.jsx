@@ -39,7 +39,7 @@ export default function ReviewsSection({ reviews }) {
           {reviews.map((review) => (
             <article
               key={review.id}
-              className="bg-white rounded-[28px] border border-slate-200 shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-6"
+              className="bg-white rounded-[1rem] border border-slate-200 shadow-[0_10px_30px_rgba(15,23,42,0.05)] p-6"
             >
               <div className="flex items-start gap-4">
                 <ReviewAvatar name={review.name} />
